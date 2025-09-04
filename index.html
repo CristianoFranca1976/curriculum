@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Cristiano Franca" />
+    <meta name="description" content="Curriculum of Cristiano Franca" />
+    <meta
+      name="keywords"
+      content="Curriculum, Cristiano Franca, CV, Resume, Work History, Education"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="shortcut icon" href="/image/LetraC.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" />
+    <title>Curriculum - Cristiano Franca</title>
+  </head>
+  <body>
+    <nav>
+<a href="#contact">Contact</a>
+<a href="#work">Work History</a>
+<a href="#education">Education</a>
+<a href="#footer">Footer</a>
+</nav>
+
+
+<header>
+<img src="/image/avatar-depois.png" alt="Profile Picture">
+<h1>Cristiano Ferro de Franca</h1>
+<button type="button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+<button type="button" onclick="window.print()">Download CV (PDF)</button>
+</header>
+
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>Email: cristiano.franca@hotmail.co.uk</p>
+<p>Phone: 07972139297</p>
+<p>Address: 75, Fern Hill Road, Oxford, Oxford, United Kingdom, OX4 2JW</p>
+</section>
+
+
+<section id="work" class="work">
+<h2>Work History</h2>
+<div class="job">
+<p><strong>MOT Tester</strong> - Halfords</p>
+<p class="date">Witney, Oxfordshire | 06/2025 - Current</p>
+<div class="skills">
+<span>Diagnostics</span><span>Team Leadership</span><span>Customer Service</span>
+</div>
+</div>
+<div class="job">
+<p><strong>MOT Tester</strong> - National Tyres and Autocare (Halfords)</p>
+<p class="date">Oxford, Oxfordshire | 01/2024 - 06/2025</p>
+<div class="skills">
+<span>Vehicle Safety</span><span>Problem Solving</span>
+</div>
+</div>
+<div class="job">
+<p><strong>MOT Tester and Technician</strong> - Pro Tyres</p>
+<p class="date">Abingdon, Oxfordshire | 09/2022 - 09/2024</p>
+<div class="skills">
+<span>Repairs</span><span>Teamwork</span><span>Efficiency</span>
+</div>
+</div>
+<div class="job">
+<p><strong>Driver</strong> - Sainsbury’s</p>
+<p class="date">Oxford | 09/2023 - 01/2024</p>
+<div class="skills">
+<span>Logistics</span><span>Time Management</span><span>Customer Interaction</span>
+</div>
+</div>
+</section>
+
+
+<section id="education" class="education">
+  <h2>Education</h2>
+
+  <div class="edu">
+    <p><strong>Entry 1 English and Maths</strong></p>
+    <p class="date">City of Oxford College - 09/2015 - 01/2016</p>
+    <button type="button" onclick="openModal(event, '/image/not.jpg')" data-disabled="true">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Entry 2 English and Maths</strong></p>
+    <p class="date">City of Oxford College - 02/2016 - 06/2016</p>
+    <button type="button" onclick="openModal(event, '/image/not.jpg')" data-disabled="true">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Entry 3 English and Maths</strong></p>
+    <p class="date">City of Oxford College - 09/2016 - 06/2017</p>
+    <button type="button" onclick="openModal(event, '/image/not.jpg')" data-disabled="true">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Level 1 English</strong></p>
+    <p class="date">Adult Learning Service The Union - 12/2017 - 06/2018</p>
+    <button type="button" onclick="openModal(event, '/image/not.jpg')" data-disabled="true">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>GCSEs English and Maths</strong></p>
+    <p class="date">City of Oxford College - 09/2017 - 07/2018</p>
+    <button type="button" onclick="openModal(event, '/image/not.jpg')" data-disabled="true">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Level 1 Vehicle Maintenance</strong></p>
+    <p class="date">City of Oxford College - 09/2017 - 07/2018</p>
+    <button type="button" onclick="openModal(event, '/image/MOT_Level01.png')">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Level 2 Vehicle Maintenance</strong></p>
+    <p class="date">City of Oxford College - 09/2018 - 07/2019</p>
+    <button type="button" onclick="openModal(event, '/image/MOT_Level02.png')">View Certificate</button>
+  </div>
+
+  <div class="edu">
+    <p><strong>Level 3 Vehicle Maintenance and MOT Tester</strong></p>
+    <p class="date">MOT Expert Limited - 07/2022 - 07/2022, Northampton</p>
+    <button type="button" onclick="openModal(event,'/image/MOT.png')">View Certificate</button>
+  </div>
+</section>
+
+
+
+<!-- Modal -->
+<div id="modal" class="modal">
+<span class="close-btn" onclick="closeModal()">&times;</span>
+<img id="modal-img" src="" alt="Certificate">
+</div>
+
+
+<footer id="footer">
+<p>&copy; 2025 Cristiano Ferro de Franca</p>
+<div id="social-links">
+        <a href="https://github.com/CristianoFranca1976"target="_blank" rel="noopener">
+          <img src="image/github.png" alt="logo-github">
+        </a>
+  
+        <a href="https://www.instagram.com/cristianofranca83/"target="_blank" rel="noopener">
+          <img src="image//instagram.png" alt="logo-instagram">
+        </a>
+  
+        <a href="https://www.youtube.com/channel/UCim3c539P4CJQOIMGPaT1oQ"target="_blank" rel="noopener">
+          <img src="image//youtube.png" alt="logo-youtube">
+        </a>
+  
+        <a href="https://www.linkedin.com/in/cristiano-franca-4a968627a/"target="_blank" rel="noopener">
+          <img src="image/linkedin.png" alt="logo-linkedin">
+        </a>
+        <a href="https://donates.vercel.app/"target="_blank" rel="noopener">
+          <img src="image/donate.png" alt="logo-linkedin">
+        </a>
+</footer>
+    <script src="/script.js"></script>
+  </body>
+</html>
