@@ -46,6 +46,7 @@ nav {
   background: #002b5c;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
   padding: 0.8rem;
   z-index: 999;
@@ -59,13 +60,12 @@ nav a {
 nav a:hover {
   color: #4da6ff;
 }
-#views-badge {
+#views {
   position: fixed;
-  bottom: 15px;
-  right: 15px;
+  right: 20px;
   background: #002b5c;
   color: #fff;
-  padding: 8px 14px;
+  padding: 5px;
   border-radius: 20px;
   font-size: 0.9rem;
   font-weight: bold;
@@ -75,7 +75,7 @@ nav a:hover {
   transition: transform 0.2s ease-in-out;
 }
 
-#views-badge:hover {
+#views:hover {
   transform: scale(1.1);
 }
 section {

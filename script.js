@@ -18,9 +18,9 @@ function closeModal() {
     try {
       const res = await fetch("https://counterapi.dev/api/curriculum-cristiano-franca/vercel/views?increment=true");
       const data = await res.json();
-      document.getElementById("views-badge").innerHTML = "👀 Views: " + data.count;
+      document.getElementById("views").innerHTML = "👀 Views: " + data.count;
     } catch (e) {
-      document.getElementById("views-badge").innerHTML = "👀 Views: error";
+      document.getElementById("views").innerHTML = "👀 Views: error";
       console.error("View counter error:", e);
     }
   }
