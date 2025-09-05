@@ -59,16 +59,24 @@ nav a {
 nav a:hover {
   color: #4da6ff;
 }
-#views {
-  margin-top: 10px;
+#views-badge {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
   background: #002b5c;
   color: #fff;
-  display: inline-block;
-  padding: 6px 12px;
+  padding: 8px 14px;
   border-radius: 20px;
-  font-weight: bold;
   font-size: 0.9rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  cursor: default;
+  transition: transform 0.2s ease-in-out;
+}
+
+#views-badge:hover {
+  transform: scale(1.1);
 }
 section {
   max-width: 900px;

@@ -16,11 +16,11 @@ function closeModal() {
 
   async function updateViews() {
     try {
-      const res = await fetch("https://api.countapi.dev/hit/cristiano-cv-site/visit");
+      const res = await fetch("https://counterapi.dev/api/curriculum-cristiano-franca/vercel/views?increment=true");
       const data = await res.json();
-      document.getElementById("views").innerHTML = "👀 Views: " + data.value;
+      document.getElementById("views-badge").innerHTML = "👀 Views: " + data.count;
     } catch (e) {
-      document.getElementById("views").innerHTML = "👀 Views: error";
+      document.getElementById("views-badge").innerHTML = "👀 Views: error";
       console.error("View counter error:", e);
     }
   }
