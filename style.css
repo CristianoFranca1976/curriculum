@@ -59,6 +59,17 @@ nav a {
 nav a:hover {
   color: #4da6ff;
 }
+#views {
+  margin-top: 10px;
+  background: #002b5c;
+  color: #fff;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 section {
   max-width: 900px;
   margin: 2rem auto;
