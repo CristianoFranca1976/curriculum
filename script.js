@@ -24,12 +24,21 @@ async function updateViews() {
       const data = await res.json();
       document.getElementById("views").innerHTML = "👀 Views: " + data.count;
 
-      // Salva número atual no localStorage
+      // Marca no localStorage
       localStorage.setItem("hasVisited", "true");
       localStorage.setItem("viewCount", data.count);
     } else {
-      // Se já visitou, pega só do localStorage (sem chamar API)
-      const count = localStorage.getItem("viewCount");
+      // Já visitou → usa valor salvo, mas garante atualização
+      let count = localStorage.getItem("viewCount");
+
+      if (!count) {
+        // Se por algum motivo não tem valor salvo, faz nova chamada
+        const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up");
+        const data = await res.json();
+        count = data.count;
+        localStorage.setItem("viewCount", count);
+      }
+
       document.getElementById("views").innerHTML = "👀 Views: " + count;
     }
   } catch (e) {
@@ -39,6 +48,7 @@ async function updateViews() {
 }
 
 updateViews();
+
 
 
 
