@@ -16,23 +16,21 @@ function closeModal() {
 
 async function updateViews() {
   try {
-    // Verifica se já contou visita nesse navegador
     if (!localStorage.getItem("hasVisited")) {
+      // Primeira visita → incrementa no servidor
       const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up"); 
       if (!res.ok) throw new Error("API error: " + res.status);
 
       const data = await res.json();
       document.getElementById("views").innerHTML = "👀 Views: " + data.count;
 
-      // Marca que já contou visita neste navegador
+      // Salva número atual no localStorage
       localStorage.setItem("hasVisited", "true");
+      localStorage.setItem("viewCount", data.count);
     } else {
-      // Se já visitou, pega o valor atual sem aumentar o contador
-      const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum"); 
-      if (!res.ok) throw new Error("API error: " + res.status);
-
-      const data = await res.json();
-      document.getElementById("views").innerHTML = "👀 Views: " + data.count;
+      // Se já visitou, pega só do localStorage (sem chamar API)
+      const count = localStorage.getItem("viewCount");
+      document.getElementById("views").innerHTML = "👀 Views: " + count;
     }
   } catch (e) {
     document.getElementById("views").innerHTML = "👀 Views: unavailable";
@@ -41,5 +39,6 @@ async function updateViews() {
 }
 
 updateViews();
+
 
 
