@@ -14,14 +14,14 @@ function closeModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-  async function updateViews() {
-    try {
-      const res = await fetch("https://counterapi.dev/api/curriculum-cristiano-franca/vercel/views?increment=true");
-      const data = await res.json();
-      document.getElementById("views").innerHTML = "👀 Views: " + data.count;
-    } catch (e) {
-      document.getElementById("views").innerHTML = "👀 Views: error";
-      console.error("View counter error:", e);
-    }
+async function updateViews() {
+  try {
+    // Incrementa e pega o total
+    const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up");
+    const data = await res.json();
+    document.getElementById("views-badge").innerHTML = "👀 Views: " + data.count;
+  } catch (e) {
+    document.getElementById("views-badge").innerHTML = "👀 Views: error";
+    console.error("View counter error:", e);
   }
-  updateViews();
+}
