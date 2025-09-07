@@ -16,12 +16,16 @@ function closeModal() {
 
 async function updateViews() {
   try {
-    // Incrementa e pega o total
-    const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up");
+    const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up"); 
+    if (!res.ok) throw new Error("API error: " + res.status);
+    
     const data = await res.json();
     document.getElementById("views").innerHTML = "👀 Views: " + data.count;
   } catch (e) {
-    document.getElementById("views").innerHTML = "👀 Views: error";
+    document.getElementById("views").innerHTML = "👀 Views: unavailable";
     console.error("View counter error:", e);
   }
 }
+
+updateViews();
+
