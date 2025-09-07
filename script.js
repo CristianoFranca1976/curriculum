@@ -19,9 +19,9 @@ async function updateViews() {
     // Incrementa e pega o total
     const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up");
     const data = await res.json();
-    document.getElementById("views-badge").innerHTML = "👀 Views: " + data.count;
+    document.getElementById("views").innerHTML = "👀 Views: " + data.count;
   } catch (e) {
-    document.getElementById("views-badge").innerHTML = "👀 Views: error";
+    document.getElementById("views").innerHTML = "👀 Views: error";
     console.error("View counter error:", e);
   }
 }
