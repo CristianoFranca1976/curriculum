@@ -1,85 +1,29 @@
-function toggleDarkMode() {
-  document.body.classList.toggle("dark");
+'use strict';
+const theme = document.querySelector('#theme');
+function setTheme(light) {
+ document.body.classList.toggle('light', light);
+ theme.setAttribute('aria-pressed', String(light));
+ theme.textContent = light ? 'Dark mode' : 'Light mode';
 }
-function openModal(e, imgSrc) {
-  const btn = e.currentTarget; // garante que é o botão clicado
-  if (btn.hasAttribute("disabled")) {
-    alert("Certificate not available");
-    return;
-  }
-  document.getElementById("modal-img").src = imgSrc;
-  document.getElementById("modal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-async function updateViews() {
-  try {
-    if (!localStorage.getItem("hasVisited")) {
-      const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up"); 
-      if (!res.ok) throw new Error("API error: " + res.status);
-
-      const data = await res.json();
-      document.getElementById("views").innerHTML = "👀 Views: " + data.count;
-
-      localStorage.setItem("hasVisited", "true");
-      localStorage.setItem("viewCount", data.count);
-    } else {
-      let count = localStorage.getItem("viewCount");
-
-      if (!count) {
-        const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/up");
-        const data = await res.json();
-        count = data.count;
-        localStorage.setItem("viewCount", count);
-      }
-
-      document.getElementById("views").innerHTML = "👀 Views: " + count;
-    }
-  } catch (e) {
-    document.getElementById("views").innerHTML = "👀 Views: unavailable";
-    console.error("View counter error:", e);
-  }
-}
-
-async function resetViews() {
-  try {
-    // Corrigido: rota correta para resetar
-    const res = await fetch("https://api.counterapi.dev/v1/cristiano/curriculum/set/0");
-    if (!res.ok) throw new Error("API error: " + res.status);
-
-    const data = await res.json();
-    document.getElementById("views").innerHTML = "👀 Views: " + data.count;
-
-    // Atualiza localStorage
-    localStorage.setItem("viewCount", data.count);
-    localStorage.removeItem("hasVisited");
-
-    alert("Counter reset to 0 ✅");
-  } catch (e) {
-    console.error("Reset error:", e);
-    alert("Failed to reset counter ❌");
-  }
-}
-// 🔑 Atalho para admin: pressione Ctrl+Shift+A para desbloquear o botão
-document.addEventListener("keydown", function(e) {
-  if (e.ctrlKey && e.shiftKey && e.key === "A") {
-    const pass = prompt("Enter admin password:");
-    if (pass === "minhaSenha123") { // <-- troque por sua senha secreta
-      // Cria o botão dinamicamente
-      const btn = document.createElement("button");
-      btn.innerText = "Reset Views";
-      btn.onclick = resetViews;
-      btn.style.marginLeft = "10px";
-      document.querySelector("header").appendChild(btn);
-      alert("Admin mode activated ✅");
-    }
-  }
+try { setTheme(localStorage.getItem('cv-theme') === 'light'); } catch {}
+theme.addEventListener('click', () => {
+ const light = !document.body.classList.contains('light');
+ setTheme(light);
+ try { localStorage.setItem('cv-theme', light ? 'light' : 'dark'); } catch {}
 });
-
-updateViews();
-
-
-
-
+document.querySelector('#print').addEventListener('click', () => window.print());
+document.querySelector('#share').addEventListener('click', async () => {
+ const status = document.querySelector('#status');
+ if (!/^https?:$/.test(location.protocol)) {
+  status.textContent = 'Sharing is available after this CV is hosted online.';
+  return;
+ }
+ const data = { title: 'Cristiano Ferro de Franca | Professional CV', url: location.href.split('#')[0] };
+ try {
+  if (navigator.share) { await navigator.share(data); status.textContent = 'Share options opened.'; }
+  else if (navigator.clipboard && window.isSecureContext) { await navigator.clipboard.writeText(data.url); status.textContent = 'CV link copied.'; }
+  else { status.textContent = 'Copy the address from your browser to share this CV.'; }
+ } catch (error) {
+  status.textContent = error.name === 'AbortError' ? 'Sharing cancelled.' : 'Copy the address from your browser to share this CV.';
+ }
+});
