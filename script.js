@@ -27,3 +27,4 @@ document.querySelector('#share').addEventListener('click', async () => {
   status.textContent = error.name === 'AbortError' ? 'Sharing cancelled.' : 'Copy the address from your browser to share this CV.';
  }
 });
+
