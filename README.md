@@ -4,7 +4,6 @@
 
 ### First image
 
-![alt text](<Screenshot 2025-09-04 214831.png>)
+![alt text](<readmeImage.png>)
 
-
-[link here](https://curriculum-cristiano-franca.vercel.app/)
+[link here](readmeImage.png)
